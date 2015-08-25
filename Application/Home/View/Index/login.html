@@ -1,0 +1,116 @@
+<block name="include"><include file="Public:head" /></block>
+</head>
+
+<body>
+<script type="text/javascript">
+$(function(){
+	jQuery.validator.addMethod("userName", function(value, element) {  
+		var name = /^[\a-\z\A-\Z0-9\@\._\-\u4E00-\u9FA5]{3,15}$/;
+		return this.optional(element) || (name.test(value));
+	}, "用户名格式不符");
+	jQuery.validator.addMethod("pwdCheck", function(value, element) {  
+		var tel = /^[A-Za-z0-9!@#$%^&*_]{3,60}$/;
+		return this.optional(element) || (tel.test(value));
+	}, "密码格式不符");
+	$('#login_form').validate({
+		errorPlacement: function(error, element){
+			$('#'+($(element).attr('name'))+'_err').append(error);
+		},
+		onkeyup : false,
+		rules : {
+			username : {
+				required : true,
+				userName : true
+			},
+			password : {
+				required : true,
+				pwdCheck : true
+			},
+		},
+		messages : {
+			username : {
+				required : '请输入用户名称',
+				userName : '支持3-15位中文、英文、数字、下划线.-,'
+			},	
+			password  : {
+				required : '请输入您的密码',
+				pwdCheck : '支持3-60位数字、字母或字符组成的密码'
+			},
+		}
+	});
+});
+</script>
+</head>
+
+<body>
+
+
+
+<div class="ht_login">
+	<h3>登录<a href='<{:U("Home/Index/register")}>' class="r1">注册</a></h3>
+		<p>请直接登录</p>
+	<form id='login_form' action='<{:U("Home/Index/login")}>' method='post'>
+	<table width="570" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="75" height="55" valign="top"><span>*&nbsp;用户名</span></td>
+		<td width="495" height="55"><input name="username" id="username" type="text" placeholder="请输入用户名称" />
+		<div class="htinput_err" id='username_err'></div>
+		
+		</td>
+	</tr>
+	<tr>
+		<td width="75" height="55" valign="top"><span>*&nbsp;您的密码</span></td>
+		<td width="495" height="55"><input name="password" id="password" type="password" placeholder="请输入您的密码" />
+		<div class="htinput_err" id='password_err'></div>
+		</td>
+	</tr>
+	<tr>
+		<td width="75" height="55"></td>
+		<td width="495" height="55"><input type='submit' value='登录'><a href='<{:U("Home/Member/findpw")}>' style="float:right;" >忘记密码</a></td>
+	</tr>
+</table>
+</form>
+		
+		
+		
+</div>
+		
+		
+		
+		
+
+
+
+<div class="clear"></div> 
+
+
+
+
+
+
+<!--main--><!--main--><!--main-->
+
+<div class="clear"></div>
+
+
+
+
+<!--end--><!--end--><!--end-->
+<include file="Public/foot" />
+<!--end--><!--end--><!--end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+	

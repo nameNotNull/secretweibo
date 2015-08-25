@@ -1,0 +1,44 @@
+<link href="<{:C(__CSS__)}>/admin-style.css" rel="stylesheet" type="text/css" />
+<script>
+$(function(){
+	$("tr:even").css('background','#eee')
+})
+</script>
+<div class="title title-product">匿名组列表</div>
+<style type="text/css">
+.sbox{background:#CCC; padding:5px;}
+.input{border:#FFF solid 1px;}
+option{margin:10px; padding:10px;}
+</style>
+<div class="sbox">
+  <form name="form1" method="post" action="<{:U('search')}>">
+    <label>
+      <select name="catid" id="catid">
+        <option value="0">不限分类</option>
+        <volist name="cat" id="list">
+        <option value="<{$list['id']}>"><{$list['name']}></option>
+        </volist>
+      </select>
+    </label>
+    <label>
+      <input class="input" type="text" name="k" id="k">
+    </label>
+    <input type="submit" name="button" id="button" value="搜索">
+  </form>
+</div>
+<table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="first">
+    <td width="30" align="center" valign="middle">ID</td>
+    <td width="100" align="center" valign="middle">组元素</td>
+    <td width="100" align="center" valign="middle">所属组</td>
+     <td width="120" align="center" valign="middle">操作</td>
+  </tr>
+  <volist name="article" id="list">
+  <tr>
+    <td width="30" align="center" valign="middle"><{$list['id']}></td>
+    <td><{$list['vuser']}></td>
+    <td width="100" align="center" valign="middle"><{$list['vtype']}></td>
+    <td width="120" align="center" valign="middle"><a class="edit" href="<{:U('edit','id='.$list['id'])}>">修改</a> <a class="del" href="<{:U('delete','id='.$list['id'])}>" onClick="return confirm('确定要删除吗？')">删除</a></td>
+  </tr>
+  </volist>
+</table>

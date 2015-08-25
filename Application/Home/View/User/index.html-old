@@ -1,0 +1,7 @@
+<form id='login_form' action='<{:U("Home/User/publishMsg")}>' method='post'>
+    	<textarea class="form-control" name = "publish" id="weibo_content" placeholder="分享些什么"></textarea>
+        <input type="submit" value="aaaaa">
+</form>
+<volist name="contentData" id="list">
+<span><{$list['content']}></span>
+</volist>

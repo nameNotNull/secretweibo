@@ -1,0 +1,81 @@
+<link href="<{:C(__CSS__)}>/admin-style.css" rel="stylesheet" type="text/css" />
+<div class="wel"><{$AdminName|default=$AdminUser}><php>
+$h=date('G');
+if ($h<11) echo '早上好';
+else if ($h<13) echo '中午好';
+else if ($h<17) echo '下午好';
+else echo '晚上好';
+</php>，欢迎使用 匿名微博管理后台  ！</div>
+
+<div class="time">
+您上次的登录时间是 <{:date("Y-m-d H:i:s",$loginTime)}> , IP 是 <{$loginIp}>
+</div>
+<!--
+<div class="home-menu">
+ <a href="<{:U('Index/clear')}>" class="clear">清除缓存</a>
+ <a href="<{:U('Article/add')}>" class="add">添加文章</a>
+ <a href="<{:U('Map/index')}>" class="map">网站地图</a>
+ <a href="<{:U('Set/index')}>" class="set">网站设置</a>
+</div>
+-->
+
+<script>
+$(function(){
+	$('tr:even').css('background','#ddd')
+})
+</script>
+<table class="table" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:20px;">
+  <tr class="first">
+  <td colspan="4">数据统计  &nbsp;&nbsp; 注：统计近七天的数据</td>
+  </tr>
+  <tr>
+    <td >日期</td>
+     <td >新会员注册</td>
+      <td >旧会员激活</td>
+       <td >匿名消息数</td>
+       
+  </tr>
+  <volist name="content" id="list">
+  <tr>
+    <td><{$list['riqi']}></td>
+    <td><{$list['member']}></td>
+    <td><{$list['activate']}></td>
+    <td> <{$list['discuss']}></td>
+   
+  </tr>
+  <php>
+  $members += $list['member'];
+  $activates += $list['activate'];
+  $discusses += $list['discuss'];
+  
+  </php>
+</volist>
+<tr><td >总计</td><td><{$members}></td><td><{$activates}></td><td><{$discusses}></td></tr>
+</table>
+<table class="table" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:20px;">
+  <tr class="first">
+  <td colspan="1">待办工作</td>
+  </tr>
+  <tr>
+    <td  align="center">会员认证审核</td>
+    
+  </tr>
+
+  <tr>
+    <td align="center"><A href="<{:U('Admin/renzheng/index')}>?if_pass=0"><{$daiban['renzheng']}></A></td>
+   
+  </tr>
+
+
+</table>
+<table class="table" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:20px;">
+  <tr class="first">
+  <td colspan="2">自我管理</td>
+  </tr>
+  <tr>
+    <td ><a href="<{:U('master/edit','id='.$adminId)}>">修改密码</a></td>
+     <td ><a href="<{:U('master/edit','id='.$adminId)}>">编辑账号信息</a></td>
+  </tr>
+
+</table>
+

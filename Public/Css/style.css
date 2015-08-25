@@ -1,0 +1,87 @@
+/*
+ Author：雪痕
+ WebSite：http://www.xuehen.org
+ EditDate：2014-06-05
+*/
+/*common*/
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:14px/1.5 '微软雅黑',Tahoma,Arial,Helvetica,sans-serif;}
+body{background:#FFF;}
+a{color:#333;}
+.z{float:left;}
+.y{float:right;}
+.c{clear:both;}
+.wrap{width:960px; margin:auto;}
+/*顶部*/
+.head{background:#FFF; height:80px; border-bottom:#CCC solid 1px;}
+.head .logo{display:block; float:left; margin-right:15px;}
+.head .nav{display:block; float:left; height:30px; margin-top:25px;}
+.head .nav li{float:left; line-height:20px; height:20px; position:relative; z-index:9999;padding:5px 25px;}
+.head .nav .on{background:#06F;}
+.head .nav .on a{color:#FFF;}
+/*下拉菜单*/
+.head .nav-child{display:none; background:url(Index/up-arrow.png) no-repeat 10px 4px; padding-top:10px; position:absolute; top:30px; left:0px; width:150px; z-index:999;}
+.head .nav .nav-child a{display:block; width:130px; line-height:20px; padding:8px 10px; background:#DDD; border-bottom:#CCC solid 1px; color:#000;}
+.head .nav .nav-child a:hover{border-bottom:#06F solid 1px; background:#06F; color:#FFF;}
+.head #search-form{display:block; float:right; height:30px; margin-top:25px;}
+.head #search-form #k{border:#CCC solid 1px; outline:none; padding:5px 10px; width:150px; line-height:20px; font-size:14px; background:url(Index/inputbg.gif) repeat-x; height:20px; float:left; border-right:0;}
+.head #search-form #k:focus{border:#09F solid 1px; border-right:0;}
+.head #search-form #search-but{background:url(Index/sbtn.jpg) no-repeat center; border:0; width:40px; height:32px; cursor:pointer;}
+#slideShow{background:#000}
+/*左侧内容*/
+.index-box{width:700px; background:#EEE; padding:0px; margin-top:15px; float:left; border:#CCC solid 1px;border-top-right-radius:5px; border-top-left-radius:5px; padding-bottom:20px;}
+.index-box h2{font-size:16px; background:#CCC; padding:10px;font-weight:normal; color:#000; height:25px;}
+.index-box h2 span,.list h2 span{font-size:12px; font-weight:normal; padding-top:10px;}
+.product{width:215px; height:120px; background:#000; float:left; margin-left:15px; margin-top:15px;}
+/*分类列表*/
+.category{width:700px; background:#EEE; margin-top:15px; overflow:hidden; padding:0px; border:#CCC solid 1px; float:left; border-radius:5px;}
+.category h2{font-size:18px; margin-top:20px; padding:0px 15px;}
+.category .des{margin-top:10px; border-bottom:solid 1px #CCC; padding:0px 10px 10px 15px;}
+/*内页*/
+.content{width:700px; background:#EEE; margin-top:15px; overflow:hidden; padding:0px; border:#CCC solid 1px; float:left; border-radius:5px;}
+.content .position,.category .position{color:#333; padding:10px; border-bottom:#999 solid 1px; background:#CCC}
+.content .position a,.category .position a{text-decoration:none;}
+.content .title{margin:0px; padding:15px 10px; background:#DDD; border-bottom:#999 solid 1px;}
+.content .title h1{font-size:24px; margin-bottom:10px;}
+.content .title h1 a{color:#333; text-decoration:none;}
+.content .titles{margin:10px; padding:10px 0px; font-size:24px; text-align:center; color:#F33;}
+.content img{max-width:710px;}
+.content a{text-decoration:underline;}
+.content h3{padding:5px 10px; padding-top:7px; background:#ddd; border-left:#06F solid 5px; margin:10px 0px;}
+.content .txt{padding:20px; color:#333; font-size:16px; line-height:2em;}
+.content .txt img{max-width:610px; margin:10px 0px;}
+.content a:hover{color:#039;}
+/*右侧*/
+.list{width:240px;background:#EEE; height:335px; margin-top:15px; float:right; border:#CCC solid 1px; border-top-right-radius:5px; border-top-left-radius:5px;}
+.list h2{font-size:16px; background:#CCC; padding:10px;font-weight:normal; color:#000; height:25px;}
+.list p{border-bottom:#CCC solid 1px; padding:6px 0px; margin:0px 10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.list p a:hover{text-decoration:none; color:#06F;}
+/*分页*/
+.fenye{margin-top:10px; background:#EEE; padding:15px; border-radius:5px;}
+.fenye a,.fenye span{background:#ddd; font-size:14px; line-height:14px; padding:3px 10px; margin-right:5px; border-radius:15px;}
+.fenye span{background:#333; color:#FFF;}
+/*底部*/
+.foot{width:100%; background:#ddd; margin-top:15px; color:#000; padding:20px 0px;}
+.foot .about{width:630px; float:left; border-left:#999 solid 1px; padding-left:30px; line-height:2em;}
+.foot .about h2{font-size:18px; font-weight:normal; margin:10px 0px;}
+.foot .copyright{margin-top:20px;}
+.foot .copyright a{padding-right:10px; color:#000;}
+.foot .copyright a:hover{color:#333; text-decoration:none;}
+.foot .contact{float:left; margin-right:30px; width:260px;}
+.foot .contact h3{font-size:16px; margin-top:10px; font-weight:normal;}

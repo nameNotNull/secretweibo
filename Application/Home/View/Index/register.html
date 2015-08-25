@@ -1,0 +1,158 @@
+<include file="Public/head" />
+</head>
+
+<body>
+
+
+<script type="text/javascript">
+$(function(){
+	jQuery.validator.addMethod("userName", function(value, element) {  
+		var name = /^[\a-\z\A-\Z0-9\@\._\-\u4E00-\u9FA5]{3,15}$/;
+		return this.optional(element) || (name.test(value));
+	}, "用户名格式不符");
+	jQuery.validator.addMethod("comPany", function(value, element) {  
+		var name = /^[\a-\z\A-\Z0-9\u4E00-\u9FA5\@\._\-]{1,60}$/;
+		return this.optional(element) || (name.test(value));
+	}, "企业格式不符");
+	jQuery.validator.addMethod("pwdCheck", function(value, element) {  
+		var tel = /^[A-Za-z0-9!@#$%^&*_]{3,60}$/;
+		return this.optional(element) || (tel.test(value));
+	}, "密码格式不符");
+	
+	jQuery.validator.addMethod("email", function(value, element) {  
+		var tel = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]{3,60}$/;
+		return this.optional(element) || (tel.test(value));
+	}, "邮箱格式不符");
+
+	$('#register_form').validate({
+		errorPlacement: function(error, element){
+			$('#'+($(element).attr('name'))+'_err').append(error);
+		},
+		onkeyup : false,
+		rules : {
+			username : {
+				required : true,
+				userName : true
+			},
+			company : {
+				required : false,
+				comPany : true
+			},
+			password : {
+				required : true,
+				pwdCheck : true
+			},
+			password_confirm : {
+				required : true,
+				equalTo : '#password'
+			},
+			email : {
+				required : true,
+				email : true,
+				maxlength : 60
+			}
+		},
+		messages : {
+			username : {
+				required : '请输入用户名称',
+				userName : '支持3-15位中文、英文、数字、下划线.-,'
+			},
+			company : {
+				comPany : '支持0-60位中文、英文、数字、下划线.-,'
+			},
+			password  : {
+				required : '请输入您的密码',
+				pwdCheck : '支持3-60位数字、字母或字符组成的密码'
+			},
+			password_confirm : {
+				required : '请再次确认密码',
+				equalTo : '两次输入的密码不一致'
+			},
+			email : {
+				required : '请输入您的邮箱',
+				email   : '请输入有效邮箱',
+				maxlength : '邮箱长度不得超过60个字符'
+			}
+		}
+	});
+});
+</script>
+<div class="ht_login">
+    <h3>注册</h3>
+    	<table width="570" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="470" height="55" ><p>如果已经注册过,请直接登录</p></td>
+		<td width="100" height="55" ><a href="<{:U('Home/Index/login')}>" class="r1">直接登录</a>
+		</td>
+	</tr>
+
+</table>
+	
+	<form id='register_form'  action='<{:U("Home/Index/register")}>'   method='post'>
+	<table width="570" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="75" height="55" valign="top"><span>*&nbsp;用户名</span></td>
+		<td width="495" height="55" valign="top"><input name="username" id='username' type="text" placeholder="请输入用户名" />
+		<div class="htinput_err" id='username_err'></div>
+		</td>
+	</tr>
+	<tr>
+		<td width="75" height="55" valign="top"><span>*&nbsp;您的密码</span></td>
+		<td width="495" height="55" valign="top"><input name="password" id='password' type="password" placeholder="请输入您的密码" />
+		<div class="htinput_err" id='password_err'></div>
+		</td>
+	</tr>
+	<tr>
+		<td width="75" height="55" valign="top"><span>*&nbsp;确认密码</span></td>
+		<td width="495" height="55" valign="top"><input name="repassword" id='password_confirm' type="password" placeholder="请输入您的密码" />
+		<div class="htinput_err" id='password_confirm_err'></div>
+		</td>
+	</tr>
+	<tr>
+		<td width="75" height="55"></td>
+		<td width="495" height="55"><input type='submit' value='注册'>	</tr>
+</table></form>
+		
+</div>
+
+		
+
+
+
+<div class="clear"></div> 
+
+
+
+
+
+
+<!--main--><!--main--><!--main-->
+
+<div class="clear"></div>
+
+
+
+
+
+<!--end--><!--end--><!--end-->
+<include file="Public/foot" />
+<!--end--><!--end--><!--end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+						

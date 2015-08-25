@@ -1,0 +1,134 @@
+<!--引入头部html-->
+<include file = "Public/head" />
+</head>
+<body>
+<script type="text/javascript">
+    function getComment(id){
+        var pid =id;
+        var url ='<?=U("User/getComment");?>';
+        $('#postcomment'+pid).toggle();
+        $.ajax({
+            url:url,
+            type:'POST',
+            dataType:'JSON',
+            data:{'pid':pid},
+            async:false,
+            success:function(msg){
+                var commentData;
+                for(var i=0;i<msg.length;i++){
+                    commentData = msg[i];
+                if(msg!=null){
+                    //if('undefined' == typeof(dataNow.error) ){
+                        var html = '<div class="WB_info" ><font size= 2 color="red">'+commentData.vuser+'</font></div><div class="WB_text feed_list_content">'+commentData.content+'</div><div class="WB_text feed_list_content">'+commentData.ctime+'</div>';
+                        var div= document.createElement("li");
+                        div.innerHTML=html;
+                        $('#postcomment'+pid).append(div);
+                }
+            }
+            }
+        });
+    }
+    function postComment(id){
+        var pid = id;
+        var content = $("#comment_content"+pid).val();
+        var url ='<?=U("User/postComment");?>';
+        $.ajax({
+            url:url,
+            type:'POST',
+            dataType:'JSON',
+            data:{'pid':pid,'content':content},
+            async:false,
+            success:function(msg){
+                var commentData = msg;
+                if(msg!=null){
+                    var html = '<div class="WB_info" ><font size= 2 color="red">'+commentData.vuser+'</font></div><div class="WB_text feed_list_content">'+commentData.content+'</div><div class="WB_text feed_list_content">'+commentData.ctime+'</div>';
+                    var div= document.createElement("li");
+                    div.innerHTML=html;
+                    $('#postcomment'+pid).append(div);
+                    $('#comment'+pid).html('评论 '+commentData.comment_num);
+                }
+            }
+        });
+    }
+
+
+
+</script>
+<!--发微博模块-->
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2>有什么新鲜事想告诉大家？</h2>
+            <div class="box-icon">
+                <p><span>你好,</span><if condition='$username'><font color="red"> <{$username}></font> </p>
+              
+            </div>
+            
+            </div>
+            <div class="box-content">
+                <form id='login_form' action='<{:U("Home/User/publishMsg")}>' method='post'>
+                    <div class="form-group">
+                        <label for="weibo_content">微博</label>
+                        <textarea class="form-control" name = "publish" id="weibo_content" placeholder="分享些什么"></textarea>
+                    </div>
+                  
+                    <div class="form-group">
+                        <label for="anonymousType">匿名分类</label>
+                        <select id="anonymousType" name="vtypeselect" data-rel="chosen" placeholder="匿名分类">
+                            <option value="-1" >请选择匿名类别</option>
+                            <volist name="vUserType" id="v">
+                            <option <if condition="$v.vtype eq '武侠'"> selected  </if>><{$v.vtype}></option>
+                            </volist>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-default">
+                        发布
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--微博消息feed-->
+<!--{if $feed_publish|@count > 0}
+{foreach from=$feed_publish item=v}-->
+<volist name="contentData" id="list">
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="WB_left">
+                <div class="WB_photo"></div>
+            </div>
+            <div class="WB_right">
+                <div class="WB_info" title="{v.vuser}"><font size=3 color ="red"><{$list['vuser']}></font></div>
+                <div class="WB_text feed_list_content"><{$list['content']}></div>
+                <div class="WB_time"><{$list['ctime']|date='Y-m-d H:i:s',###}></div>
+            </div>
+            <!--清除浮动-->
+            <div class="clearfix"></div>
+            <div class="WB_handle">
+                <ul class="WB_row_line WB_row_r4 clearfix S_line2"  >
+                    <li>
+                        <a class="S_txt2" title="评论" id="comment<{$list['id']}>" style="cursor:pointer" herf="javascript:void(0);" attr="<{$list['id']}>" onclick="getComment(<{$list['id']}>);"type="fl_comment" >评论 <{$list['comment_num']}></a>&nbsp&nbsp<a class="S_txt2" title="点赞" type="fl_like" href="javascript:void(0);">点赞 <{$list['like_num']}></a>
+                    </li>
+                    <li style="display:none" id="postcomment<{$list['id']}>" >   
+                        <div class="form-group">
+                        <label for="weibo_content">微博</label>
+                        <textarea class="form-control" name = "publishcomment" id="comment_content<{$list['id']}>" placeholder="评论些什么"></textarea>
+                        <a class="S_txt2" title="发表评论"style="cursor:pointer" herf='javascript:void(0);'attr="<{$list['id']}>" onclick="postComment(<{$list['id']}>);" herf="javascript:void(0);"type="fl_comment" >发表评论</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</volist>
+<!--{/foreach}
+{/if}-->
+<!--引入尾部html-->
+</body>
+<include file = "Public/foot" />
+

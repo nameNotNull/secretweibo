@@ -1,0 +1,81 @@
+<!--引入头部html-->
+<include file = "Public/head" />
+</head>
+<body>
+<div class="head">
+<span class="y">
+  欢迎 <font  style="color:#FFF"><{$AdminName|default=$AdminUser}></font> 使用匿名微博&nbsp;
+  <a class="home" href="<{:F('SiteDomain')}>" target="_blank">网站首页</a>
+  <a class="tui" href="<{:U('Admin/loginout')}>">退出登录</a>
+</span>
+</div>
+
+<div class="left z" id="left">
+  <div class="menu" id="index-Index">
+   <h3 onClick="menu('index-Index')">管理中心</h3>
+   <p id="menu-Index-index"><a href="<{:U('Index/home')}>">管理首页</a></p>
+   <p id="menu-Index-Set-index"><a href="<{:U('member/index')}>">会员管理</a></p>
+  <p id="menu-Index-Set-url"><a href="<{:U('qt/index')}>">洽谈申请</a></p>
+  <!-- <p id="menu-Index-Set-index"><a href="<{:U('Set/index')}>">网站设置</a></p>
+  <p id="menu-Index-Set-url"><a href="<{:U('Set/url')}>">URL设置</a></p>
+    <p id="menu-Index-Form-index"><a href="<{:U('Form/index')}>">字段管理</a></p>
+   <p id="menu-Index-Form-add"><a href="<{:U('Form/add')}>">添加字段</a></p>-->
+  </div> 
+  
+  <div class="menu" id="index-Article">
+   <h3 onClick="menu('index-Article')">匿名组管理</h3>
+   <p id="menu-Article-index"><a href="<{:U('Admin/groupList')}>">匿名组列表</a></p>
+   <p id="menu-Article-index"><a href="<{:U('Admin/groupManage')}>">匿名组管理</a></p>
+  
+</div>
+  
+  <div class="menu" id="index-Product">
+   <h3 onClick="menu('index-Product')">对接功能</h3>
+   <p id="menu-Product-index"><a href="<{:U('producttype/index')}>">产品类型管理</a></p>
+   <p id="menu-Product-add"><a href="<{:U('customer/index')}>">客户类型管理</a></p>
+   <p id="menu-Product-cat"><a href="<{:U('industry/index')}>">应用行业管理</a></p>
+   <p id="menu-Product-catadd"><a href="<{:U('scale/index')}>">企业规模管理</a></p>
+    <p id="menu-Product-catadd"><a href="<{:U('area/index')}>">地区管理</a></p>
+  </div>
+  
+  <div class="menu" id="index-Page">
+   <h3 onClick="menu('index-Page')">文章内容</h3>
+   <p id="menu-Page-index"><a href="<{:U('article/index')}>">文章列表</a></p>
+   <!--<p id="menu-Page-add"><a href="<{:U('Page/add')}>">添加单页</a></p>-->
+  </div>
+  <!-- <div class="menu" id="index-Nav">
+   <h3 onClick="menu('index-Nav')">运营机制</h3>
+   <p id="menu-Nav-index"><a href="<{:U('Nav/index')}>">运营机制</a></p>
+  <p id="menu-Nav-add"><a href="<{:U('Nav/add')}>">添加导航</a></p>
+  </div>-->
+  <div class="menu" id="index-Master">
+   <h3 onClick="menu('index-Master')">网站管理</h3>
+   <p id="menu-Master-index"><a href="<{:U('Master/index')}>">管理员管理</a></p>
+   <p id="menu-Master-add"><a href="<{:U('Master/add')}>">添加管理员</a></p>
+   <p id="menu-Master-add"><a href="<{:U('Post/index')}>">会员通知设置</a></p>
+  </div>
+ 
+  <div class="menu" id="index-Other">
+   <h3 onClick="menu('index-Other')">统计</h3>
+   <p id="menu-Other-Link-index"><a href="<{:U('report/index')}>">日报</a></p>
+   <p id="menu-Other-Link-add"><a href="<{:U('report/index')}>">周报</a></p>
+   <p id="menu-Other-Slide-index"><a href="<{:U('report/index')}>">月报</a></p>
+  </div>
+
+  <div class="menu" id="CopyRight">
+   <ul>
+   <li class="tui"><a href="<{:U('Login/loginout')}>">退出登录</a></li>
+   </ul>
+  </div>
+  
+</div>
+
+<iframe id="right" src="<{:U('Admin/home')}>"width="80%" height=500 frameborder="0" ></iframe>
+
+</body>
+
+
+
+
+<include file = "Public/foot" />
+</html>
