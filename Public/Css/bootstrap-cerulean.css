@@ -4204,6 +4204,9 @@ a.badge:hover {
 .pull-left {
   float: left;
 }
+.pull-middle {
+  margin:0px auto;
+}
 .hide {
   display: none;
 }
