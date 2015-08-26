@@ -53,20 +53,22 @@ $(function(){
 	<table width="570" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td width="75" height="55" valign="top"><span>*&nbsp;用户名</span></td>
-		<td width="495" height="55"><input name="username" id="username" type="text" placeholder="请输入用户名称" />
+		<td width="470" height="55"><input name="username" id="username" type="text" placeholder="请输入用户名称" />
 		<div class="htinput_err" id='username_err'></div>
 		
 		</td>
 	</tr>
 	<tr>
 		<td width="75" height="55" valign="top"><span>*&nbsp;您的密码</span></td>
-		<td width="495" height="55"><input name="password" id="password" type="password" placeholder="请输入您的密码" />
+		<td width="470" height="55"><input name="password" id="password" type="password" placeholder="请输入您的密码" />
 		<div class="htinput_err" id='password_err'></div>
 		</td>
 	</tr>
 	<tr>
 		<td width="75" height="55"></td>
-		<td width="495"  height="55"><input type='submit'style="color:#6699ee;background-color:#F9FFED" value='登录'><a href='<{:U("Home/Member/findpw")}>' style="float:right;" >忘记密码</a></td>
+		<td width="495"  height="55"><input type='submit'style="color:#6699ee;background-color:#F9FFED" value='登录'>
+		<div class="htinput_err" id='password_err'></div>
+		</td>
 	</tr>
 </table>
 </form>

@@ -23,7 +23,7 @@ class AdminController extends Controller {
        if(empty($group)||empty($groupMember)){
             $this->error('add error',U('Admin/groupManage'),3);
        }
-       $groupMemberArr = explode(" ",$groupMember);
+       $groupMemberArr = explode("，",$groupMember);
        foreach($groupMemberArr as $v){
        $value = $this->trimSpace($v);
        $data [] = array(
